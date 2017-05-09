@@ -11,7 +11,10 @@ npm i -r http://registry.taobao.org
 
 1. `npm run dev:main`
 
-先产生`main.js` 供 electron 使用
+先产生`main.js` 供 electron 使用。
+
+每次修改main端代码，都必须执行改命令。如果不想这么麻烦的话，可以降级。
+
 
 2. `npm run dev`
 
