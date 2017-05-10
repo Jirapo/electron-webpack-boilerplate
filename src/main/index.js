@@ -1,9 +1,8 @@
-import { join } from 'path';
+import { join, resolve } from 'path';
 import { format } from 'url';
 import { app, BrowserWindow } from 'electron';
 
 import { isDev, APP_PATH } from 'constants-nowa';
-
 
 let win;
 function createWindow () {
@@ -12,19 +11,19 @@ function createWindow () {
 
   // and load the index.html of the app.
 
+
   if (isDev) {
     win.loadURL('http://localhost:9000/index.html');
+    // Open the DevTools.
+    win.webContents.openDevTools();
   } else {
     win.loadURL(format({
-      // pathname: './renderer/index'
-      pathname: join(APP_PATH, 'dist', 'renderer', 'index.html'),
+      pathname: resolve(APP_PATH, 'renderer', 'index.html'),
       protocol: 'file:',
       slashes: true
     }));
   }
-
-  // Open the DevTools.
-  win.webContents.openDevTools();
+  
 
   // Emitted when the window is closed.
   win.on('closed', () => {

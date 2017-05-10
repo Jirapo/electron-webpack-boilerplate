@@ -8,15 +8,16 @@ const { resolve } = require('path');
 
 const webpackCommon = require('./base.conf');
 
-const outputDir = resolve(__dirname, '..', 'app', 'dist');
+// const outputDir = resolve(__dirname, '..', 'app', 'dist');
+const outputDir = resolve(__dirname, '..', 'app');
 
 module.exports = webpackMerge(webpackCommon,
   {
     target: 'electron-renderer',
     bail: true,
     entry: {
-      renderer: './app/renderer/index.js',
-      vendor: './app/renderer/vendor.js',
+      renderer: './src/renderer/index.js',
+      vendor: './src/renderer/vendor.js',
     },
     output: {
       path: resolve(outputDir, 'renderer'),

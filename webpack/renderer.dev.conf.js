@@ -6,7 +6,8 @@ const { resolve } = require('path');
 
 const webpackCommon = require('./base.conf');
 
-const outputDir = resolve(__dirname, '..', 'app', 'dist');
+// const outputDir = resolve(__dirname, '..', 'app', 'dist');
+const outputDir = resolve(__dirname, '..', 'app');
 
 module.exports = webpackMerge(webpackCommon, 
   {
@@ -16,7 +17,7 @@ module.exports = webpackMerge(webpackCommon,
       app: [
         // 'react-hot-loader/patch',
         // 'webpack/hot/only-dev-server',
-        './app/renderer/index.js'
+        './src/renderer/index.js'
       ],
     },
     output: {

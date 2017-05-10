@@ -10,17 +10,17 @@ module.exports = {
     extensions: ['.js', '.jsx', '.json', '.css'],
     modules: [
       'node_modules',
-      resolve(__dirname, '..', 'app'),
+      resolve(__dirname, '..', 'src'),
     ],
     alias: {
-      'constants-nowa': resolve(__dirname, '..', 'app', 'constants'),
+      'constants-nowa': resolve(__dirname, '..', 'src', 'constants'),
     }
   },
   module: {
     rules: [
       {
         test: /\.js$/,
-        include: resolve(__dirname, '..', 'app'),
+        include: resolve(__dirname, '..', 'src'),
         // exclude: /node_modules/,
         loader: 'babel-loader',
         options: {
