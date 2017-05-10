@@ -13,6 +13,7 @@
     "start": "electron ./app/main.js",
     "pack": "cross-env ELECTRON_MIRROR=https://npm.taobao.org/mirrors/electron/ build --dir",
     "pack:mac": "cross-env ELECTRON_MIRROR=https://npm.taobao.org/mirrors/electron/ build -m",
+    "pack:win": "build -w",
     "rebuild": "./node_modules/.bin/electron-rebuild -d=https://gh-contractor-zcbenz.cnpmjs.org/atom-shell/dist/ -m ./app"
   },
   "keywords": [],
