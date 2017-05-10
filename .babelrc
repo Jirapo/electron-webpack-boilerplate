@@ -1,9 +1,12 @@
 {
   "presets": [
     ["env", {
+      "targets": {
+        "node": 7.4,
+        "browsers": "Electron 1.6"
+      },
       "loose": false, 
       "modules": false,
-      "debug": false
     }],
     "stage-2",
     "react"
