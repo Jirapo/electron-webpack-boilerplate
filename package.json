@@ -62,7 +62,7 @@
     "css-loader": "^0.28.1",
     "dva": "^1.2.1",
     "electron": "^1.6.8",
-    "electron-builder": "^17.5.0",
+    "electron-builder": "^13.11.1",
     "electron-is": "^2.4.0",
     "electron-rebuild": "^1.5.10",
     "file-loader": "^0.11.1",
