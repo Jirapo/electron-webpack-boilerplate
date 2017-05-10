@@ -14,8 +14,7 @@ module.exports = webpackMerge(webpackCommon,
     devtool: 'cheap-module-eval-source-map',
     entry: {
       app: [
-        // 'react-hot-loader/patch',
-        // 'webpack/hot/only-dev-server',
+        'babel-polyfill',
         './src/renderer/index.js'
       ],
     },

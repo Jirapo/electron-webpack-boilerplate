@@ -15,8 +15,8 @@ module.exports = webpackMerge(webpackCommon,
     target: 'electron-renderer',
     bail: true,
     entry: {
-      renderer: './src/renderer/index.js',
       vendor: './src/renderer/vendor.js',
+      renderer: './src/renderer/index.js',
     },
     output: {
       path: resolve(outputDir, 'renderer'),
