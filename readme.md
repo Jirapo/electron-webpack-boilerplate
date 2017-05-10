@@ -4,7 +4,7 @@
 
 ```bash
 
-npm i -r http://registry.taobao.org
+npm i -r https://registry.taobao.org
 ``` 
 
 or 
