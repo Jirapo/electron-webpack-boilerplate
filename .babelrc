@@ -2,8 +2,7 @@
   "presets": [
     ["env", {
       "targets": {
-        "node": 7.4,
-        "browsers": "Electron 1.6"
+        "electron": 1.6,
       },
       "loose": false, 
       "modules": false,
