@@ -62,7 +62,7 @@ windows 下可能运行 `npm run pack` 失败，那么请替换命令
 
 master 和 degrade 分支下的打包方案是提取chunk， dll 分支下的打包方案是dll。
 chunk 启动和prod打包慢，监听不慢，体积小。
-dll 启动和prod打包快，体积大。
+dll 启动和prod打包快，监听不慢，体积大。
 
 各位可以择优选择。
 
