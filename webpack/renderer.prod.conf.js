@@ -23,6 +23,17 @@ module.exports = webpackMerge(webpackCommon,
       filename: '[name]-[chunkhash].min.js',
       chunkFilename: '[chunkhash].js'
     },
+    module: {
+      rules: [{
+        test: /\.js$/,
+        include: resolve(__dirname, '..', 'src'),
+        // exclude: /node_modules/,
+        loader: 'babel-loader',
+        options: {
+          cacheDirectory: true
+        },
+      }]
+    },
     // externals: {
     //   electron: 'electron',
     // },

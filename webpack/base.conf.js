@@ -18,15 +18,7 @@ module.exports = {
   },
   module: {
     rules: [
-      {
-        test: /\.js$/,
-        include: resolve(__dirname, '..', 'src'),
-        // exclude: /node_modules/,
-        loader: 'babel-loader',
-        options: {
-          cacheDirectory: true
-        },
-      },
+      
       {
         test: /\.(css|less)$/,
         exclude: /node_modules/,

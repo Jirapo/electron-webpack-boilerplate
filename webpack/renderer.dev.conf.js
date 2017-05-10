@@ -1,6 +1,5 @@
 const webpack = require('webpack');
 const webpackMerge = require('webpack-merge');
-const DefinePlugin = require('webpack/lib/DefinePlugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { resolve } = require('path');
 
@@ -23,7 +22,17 @@ module.exports = webpackMerge(webpackCommon,
       filename: '[name].js',
       publicPath: '/'
     },
-
+    module: {
+      rules: [{
+        test: /\.js$/,
+        include: resolve(__dirname, '..', 'src'),
+        // exclude: /node_modules/,
+        loader: 'babel-loader',
+        options: {
+          cacheDirectory: true
+        },
+      }]
+    },
     devServer: {
       contentBase: resolve(outputDir, 'renderer'),
       publicPath: '/',

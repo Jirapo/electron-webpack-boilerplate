@@ -1,8 +1,8 @@
-import { join, resolve } from 'path';
-import { format } from 'url';
-import { app, BrowserWindow } from 'electron';
+const { app, BrowserWindow } = require('electron');
+const { resolve } = require('path');
+const { format } = require('url');
 
-import { isDev, APP_PATH } from 'constants-nowa';
+const { isDev, APP_PATH } = require('../constants');
 
 let win;
 function createWindow () {

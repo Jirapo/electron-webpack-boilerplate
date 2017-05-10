@@ -1,10 +1,15 @@
 // plase don't import electron here
 
-import is from 'electron-is';
-import { join } from 'path';
+const is = require('electron-is');
+const { join } = require('path');
+
+const isDev = is.dev();
+const APP_PATH = isDev ? join(process.cwd(), 'app') : join(process.resourcesPath, 'app');
+
+module.exports = {
+  isDev,
+  APP_PATH
+};
 
 
-export const isDev = is.dev();
-
-export const APP_PATH = isDev ? join(process.cwd(), 'app') : join(process.resourcesPath, 'app');
 

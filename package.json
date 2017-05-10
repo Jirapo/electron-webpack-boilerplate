@@ -10,7 +10,7 @@
     "build:renderer": "./node_modules/.bin/webpack --config ./webpack/renderer.prod.conf.js",
     "build": "npm run build:main & npm run build:renderer",
     "dev": "npm run dev:renderer",
-    "start": "electron ./app/main.js",
+    "start": "electron ./src/main/index.js",
     "pack": "cross-env ELECTRON_MIRROR=https://npm.taobao.org/mirrors/electron/ build --dir",
     "pack:mac": "cross-env ELECTRON_MIRROR=https://npm.taobao.org/mirrors/electron/ build -m",
     "pack:win": "build -w",
