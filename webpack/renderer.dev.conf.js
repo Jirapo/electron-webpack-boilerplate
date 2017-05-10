@@ -1,12 +1,14 @@
 const webpack = require('webpack');
 const webpackMerge = require('webpack-merge');
-const DefinePlugin = require('webpack/lib/DefinePlugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const DllReferencePlugin = require('webpack/lib/DllReferencePlugin');
+
 const { resolve } = require('path');
 
 const webpackCommon = require('./base.conf');
 
 const outputDir = resolve(__dirname, '..', 'app');
+const manifest = resolve(outputDir, 'renderer', 'vendor.json');
 
 module.exports = webpackMerge(webpackCommon, 
   {
@@ -36,8 +38,13 @@ module.exports = webpackMerge(webpackCommon,
       port: 9000
     },
     plugins: [
+      new DllReferencePlugin({
+        manifest: require(resolve(outputDir, 'renderer', 'vendor.json')),
+        sourceType: 'var',
+      }),
       new HtmlWebpackPlugin({
         template: resolve(__dirname, '..', 'static', 'index.html'),
+        inject: true,
       }),
       new webpack.HotModuleReplacementPlugin(),
     ]
