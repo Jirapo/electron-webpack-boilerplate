@@ -5,7 +5,6 @@
   "scripts": {
     "postinstall": "install-app-deps",
     "dev:renderer": "./node_modules/.bin/webpack-dev-server --config ./webpack/renderer.dev.conf.js",
-    "dev:main": "./node_modules/.bin/webpack --config ./webpack/main.dev.conf.js",
     "build:main": "./node_modules/.bin/webpack --config ./webpack/main.prod.conf.js",
     "build:renderer": "./node_modules/.bin/webpack --config ./webpack/renderer.prod.conf.js",
     "build": "npm run build:main & npm run build:renderer",
