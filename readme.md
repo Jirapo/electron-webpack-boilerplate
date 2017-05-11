@@ -20,9 +20,7 @@ npm i
 
 先产生`main.js` 供 electron 使用。
 
-每次修改main端代码，都必须执行改命令。因为 main 端使用了 es6 模块。如果不想这么麻烦的话，可以降级。
-
-降级方案请看 'degrade' 分支，此方案不需要运行该命令。
+每次修改main端代码，都必须执行改命令。因为 main 端使用了 es6 模块。
 
 
 2. `npm run dev`
@@ -60,9 +58,7 @@ windows 下可能运行 `npm run pack` 失败，那么请替换命令
 
 ## renderer 打包方案
 
-master 和 degrade 分支下的打包方案是提取chunk， dll 分支下的打包方案是dll。
-chunk 启动和prod打包慢，监听不慢，体积小。
-dll 启动和prod打包快，监听不慢，体积大。
+该分支prod打包使用了 commonchunks.
 
-各位可以择优选择。
+
 
