@@ -1,8 +1,8 @@
-import { join, resolve } from 'path';
-import { format } from 'url';
-import { app, BrowserWindow } from 'electron';
+const { app, BrowserWindow } = require('electron');
+const { resolve } = require('path');
+const { format } = require('url');
 
-import { isDev, APP_PATH } from 'constants-nowa';
+const { isDev, APP_PATH } = require('../constants');
 
 let win;
 function createWindow () {
@@ -18,7 +18,7 @@ function createWindow () {
     win.webContents.openDevTools();
   } else {
     win.loadURL(format({
-      pathname: resolve(APP_PATH, 'renderer', 'index.html'),
+      pathname: resolve(APP_PATH, 'renderer', 'index.dist.html'),
       protocol: 'file:',
       slashes: true
     }));

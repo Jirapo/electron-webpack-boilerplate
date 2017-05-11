@@ -16,13 +16,9 @@ npm i
 
 ## 启动
 
-1. `npm run dev:main`
+1. `npm run dev:dll`
 
-先产生`main.js` 供 electron 使用。
-
-每次修改main端代码，都必须执行改命令。因为 main 端使用了 es6 模块。如果不想这么麻烦的话，可以降级。
-
-降级方案请看 'degrade' 分支，此方案不需要运行该命令。
+先产生 dll js 文件，可以使 webpack 构建速度提升。
 
 
 2. `npm run dev`
@@ -57,12 +53,15 @@ windows 下可能运行 `npm run pack` 失败，那么请替换命令
 
 打包出来的文件在 `release` 文件夹。
 
+## main 端打包方案
+
+如果希望 main 端使用更高级的特性，可以对 main 端文件过babel，可以请切换到 dll-es6 分支查看。
 
 ## renderer 打包方案
 
-master 和 degrade 分支下的打包方案是提取chunk， dll 分支下的打包方案是dll。
-chunk 启动和prod打包慢，监听不慢，体积小。
-dll 启动和prod打包快，监听不慢，体积大。
+renderer 端打包方案尝试过很多种，master 分支上是个人比较满意的方案。
 
-各位可以择优选择。
+使用 dll 进行 dev 环境的构建，这样可以快速提高开发速度。 因为 electron 的环境的关系，对 prod 环境其实要求不苛刻，不需要长缓存，只需要体积尽可能小。所以没有很多多余的操作，css 都没提出去。
+
+
 

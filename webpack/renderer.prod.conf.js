@@ -2,7 +2,6 @@ const webpackMerge = require('webpack-merge');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const BabiliPlugin = require('babili-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const CommonsChunkPlugin = require('webpack/lib/optimize/CommonsChunkPlugin');
 const DefinePlugin = require('webpack/lib/DefinePlugin');
 const { resolve } = require('path');
 
@@ -15,13 +14,22 @@ module.exports = webpackMerge(webpackCommon,
     target: 'electron-renderer',
     bail: true,
     entry: {
-      vendor: './src/renderer/vendor.js',
       renderer: './src/renderer/index.js',
     },
     output: {
       path: resolve(outputDir, 'renderer'),
-      filename: '[name]-[chunkhash].min.js',
-      chunkFilename: '[chunkhash].js'
+      filename: '[name].js'
+    },
+    module: {
+      rules: [{
+        test: /\.js$/,
+        include: resolve(__dirname, '..', 'src'),
+        // exclude: /node_modules/,
+        loader: 'babel-loader',
+        options: {
+          cacheDirectory: true
+        },
+      }]
     },
     // externals: {
     //   electron: 'electron',
@@ -34,13 +42,9 @@ module.exports = webpackMerge(webpackCommon,
         root: outputDir,
         // exclude: ['index.html']
       }),
-      new CommonsChunkPlugin({
-        name: ['vendor', 'manifest'],
-        minChunks: Infinity
-      }),
       new HtmlWebpackPlugin({
         inject: true,
-        template: resolve(__dirname, '../static/index.html'),
+        template: resolve(__dirname, '../static/index.dist.html'),
         minify: {
           removeComments: true,
           collapseWhitespace: true,
