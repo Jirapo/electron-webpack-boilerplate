@@ -5,3 +5,4 @@ app/main.js
 app/nodes
 npm-debug.log
 release
+dll
