@@ -23,7 +23,7 @@ npm i
 
 2. `npm run dev`
 
-webpack 监听 renderer 文件。
+webpack 监听 renderer 文件 和 main 文件。
 
 3. 在另外一个终端执行 `npm start`
 
@@ -53,15 +53,12 @@ windows 下可能运行 `npm run pack` 失败，那么请替换命令
 
 打包出来的文件在 `release` 文件夹。
 
-## main 端打包方案
-
-如果希望 main 端使用更高级的特性，可以对 main 端文件过babel，可以请切换到 dll-es6 分支查看。
 
 ## renderer 打包方案
 
 renderer 端打包方案尝试过很多种，master 分支上是个人比较满意的方案。
 
-使用 dll 进行 dev 环境的构建，这样可以快速提高开发速度。 因为 electron 的环境的关系，对 prod 环境其实要求不苛刻，不需要长缓存，只需要体积尽可能小。所以没有很多多余的操作，css 都没提出去。
+使用 dll 进行 dev 环境的构建，这样可以快速提高开发速度。 因为 electron 的环境的关系，对 prod 环境其实要求不苛刻，不需要长缓存，只需要体积尽可能小。所以没有很多多余的操作，css 需要提出去。
 
 
 

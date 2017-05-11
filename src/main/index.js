@@ -1,8 +1,9 @@
-const { app, BrowserWindow } = require('electron');
-const { resolve } = require('path');
-const { format } = require('url');
+import { app, BrowserWindow } from 'electron';
+import { resolve } from 'path';
+import { format } from 'url';
+import { isDev, APP_PATH } from 'constants-nowa';
 
-const { isDev, APP_PATH } = require('../constants');
+// console.log(APP_PATH);
 
 let win;
 function createWindow () {
