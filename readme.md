@@ -16,13 +16,9 @@ npm i
 
 ## 启动
 
-1. `npm run dev:main`
+1. `npm run dev:dll`
 
-先产生`main.js` 供 electron 使用。
-
-每次修改main端代码，都必须执行改命令。因为 main 端使用了 es6 模块。如果不想这么麻烦的话，可以降级。
-
-降级方案请看 'degrade' 分支，此方案不需要运行该命令。
+先产生 dll js 文件，可以使 webpack 构建速度提升。
 
 
 2. `npm run dev`
