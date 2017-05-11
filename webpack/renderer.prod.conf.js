@@ -3,6 +3,8 @@ const CleanWebpackPlugin = require('clean-webpack-plugin');
 const BabiliPlugin = require('babili-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const DefinePlugin = require('webpack/lib/DefinePlugin');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
+
 const { resolve } = require('path');
 
 const webpackCommon = require('./base.conf');
@@ -29,7 +31,30 @@ module.exports = webpackMerge(webpackCommon,
         options: {
           cacheDirectory: true
         },
-      }]
+      }, {
+        test: /\.(css|less)$/,
+        exclude: /node_modules/,
+        use: ExtractTextPlugin.extract({
+          use: [{
+            loader: 'css-loader',
+            options: {
+              modules: false,
+              importLoaders: 2,
+              minimize: true,
+              sourceMap: true,
+            }
+          }, 'less-loader'],
+          fallback: 'style-loader',
+        }),
+      },
+      {
+        test: /\.css$/,
+        include: /node_modules/,
+        use: ExtractTextPlugin.extract({
+          use: 'css-loader',
+          fallback: 'style-loader',
+        })
+      },]
     },
     // externals: {
     //   electron: 'electron',
@@ -42,6 +67,7 @@ module.exports = webpackMerge(webpackCommon,
         root: outputDir,
         // exclude: ['index.html']
       }),
+      new ExtractTextPlugin('style.css'),
       new HtmlWebpackPlugin({
         inject: true,
         template: resolve(__dirname, '../static/index.dist.html'),

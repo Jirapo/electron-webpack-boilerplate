@@ -32,6 +32,35 @@ module.exports = webpackMerge(webpackCommon,
         options: {
           cacheDirectory: true
         },
+      }, {
+        test: /\.(css|less)$/,
+        exclude: /node_modules/,
+        use: [
+          'style-loader',
+          {
+            loader: 'css-loader',
+            options: {
+              minimize: true,
+              importLoaders: 2,
+              sourceMap: true
+            },
+          },
+          'less-loader',
+        ]
+      },
+      {
+        test: /\.css$/,
+        include: /node_modules/,
+        use: [
+          'style-loader',
+          {
+            loader: 'css-loader',
+            options: {
+              minimize: true,
+              sourceMap: true
+            },
+          },
+        ]
       }]
     },
     devServer: {

@@ -19,7 +19,7 @@ module.exports = {
   module: {
     rules: [
       
-      {
+      /*{
         test: /\.(css|less)$/,
         exclude: /node_modules/,
         use: [
@@ -48,7 +48,7 @@ module.exports = {
             },
           },
         ]
-      },
+      },*/
       // WOFF Font
       {
         test: /\.woff(\?v=\d+\.\d+\.\d+)?$/,
