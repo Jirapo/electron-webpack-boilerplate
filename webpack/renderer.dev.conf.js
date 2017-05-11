@@ -35,7 +35,7 @@ module.exports = webpackMerge(webpackCommon,
       }]
     },
     devServer: {
-      contentBase: resolve(outputDir, 'renderer'),
+      // contentBase: resolve(outputDir, 'renderer'),
       publicPath: '/',
       compress: true,
       historyApiFallback: true,
