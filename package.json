@@ -5,8 +5,8 @@
   "scripts": {
     "postinstall": "install-app-deps",
     "dev:renderer": "./node_modules/.bin/webpack-dev-server --config ./webpack/renderer.dev.conf.js",
-    "dev:main": "./node_modules/.bin/webpack --config ./webpack/main.dev.conf.js",
     "build:main": "./node_modules/.bin/webpack --config ./webpack/main.prod.conf.js",
+    "dev:dll": "./node_modules/.bin/webpack --config ./webpack/renderer.dll.conf.js",
     "build:renderer": "./node_modules/.bin/webpack --config ./webpack/renderer.prod.conf.js",
     "build": "npm run build:main & npm run build:renderer",
     "dev": "npm run dev:renderer",
@@ -50,6 +50,7 @@
   "license": "ISC",
   "devDependencies": {
     "antd": "^2.10.0",
+    "assets-webpack-plugin": "^3.5.1",
     "babel-core": "^6.24.1",
     "babel-loader": "^7.0.0",
     "babel-polyfill": "^6.23.0",

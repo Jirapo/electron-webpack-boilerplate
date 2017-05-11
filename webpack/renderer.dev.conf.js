@@ -1,6 +1,7 @@
-const webpack = require('webpack');
 const webpackMerge = require('webpack-merge');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const DllReferencePlugin = require('webpack/lib/DllReferencePlugin');
+const HotModuleReplacementPlugin = require('webpack/lib/HotModuleReplacementPlugin');
 const { resolve } = require('path');
 
 const webpackCommon = require('./base.conf');
@@ -34,7 +35,7 @@ module.exports = webpackMerge(webpackCommon,
       }]
     },
     devServer: {
-      contentBase: resolve(outputDir, 'renderer'),
+      // contentBase: resolve(outputDir, 'renderer'),
       publicPath: '/',
       compress: true,
       historyApiFallback: true,
@@ -48,6 +49,11 @@ module.exports = webpackMerge(webpackCommon,
       new HtmlWebpackPlugin({
         template: resolve(__dirname, '..', 'static', 'index.html'),
       }),
-      new webpack.HotModuleReplacementPlugin(),
+      new DllReferencePlugin({
+        manifest: require(resolve(__dirname, '..', 'dll', 'manifest.dll.json')),
+        sourceType: 'var',
+      }),
+     
+      new HotModuleReplacementPlugin(),
     ]
   });
