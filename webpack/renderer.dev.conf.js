@@ -35,14 +35,12 @@ module.exports = webpackMerge(webpackCommon,
       }]
     },
     devServer: {
-      // contentBase: resolve(outputDir, 'renderer'),
+      contentBase: resolve(outputDir, 'renderer'),
       publicPath: '/',
       compress: true,
       historyApiFallback: true,
       hot: true,
       https: false,
-      // noInfo: true,
-      watchContentBase: true,
       port: 9000
     },
     plugins: [
