@@ -20,9 +20,7 @@ npm i
 
 先产生`main.js` 供 electron 使用。
 
-每次修改main端代码，都必须执行改命令。因为 main 端使用了 es6 模块。如果不想这么麻烦的话，可以降级。
-
-降级方案请看 'degrade' 分支，此方案不需要运行该命令。
+每次修改main端代码，都必须执行改命令。
 
 
 2. `npm run dev`
@@ -56,4 +54,8 @@ windows 下可能运行 `npm run pack` 失败，那么请替换命令
 ```
 
 打包出来的文件在 `release` 文件夹。
+
+## renderer 打包方案
+
+dev 和 prod 都使用了 dll 方案。
 
