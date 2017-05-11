@@ -18,7 +18,7 @@ function createWindow () {
     win.webContents.openDevTools();
   } else {
     win.loadURL(format({
-      pathname: resolve(APP_PATH, 'renderer', 'index.dist.html'),
+      pathname: resolve(APP_PATH, 'renderer', 'index.html'),
       protocol: 'file:',
       slashes: true
     }));
