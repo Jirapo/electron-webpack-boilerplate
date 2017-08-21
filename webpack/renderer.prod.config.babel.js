@@ -47,7 +47,7 @@ export default webpackMerge(base, {
       analyzerMode: 'static',
       logLevel: 'error',
     }),
-    new CleanWebpackPlugin(['app/renderer']),
+    new CleanWebpackPlugin(['app/renderer'], { root: resolve(__dirname, '..'), exclude: ['vendor.js', 'vendor-manifest.json']}),
     new ExtractTextPlugin('style.css'),
     new HtmlWebpackPlugin({
       inject: true,
