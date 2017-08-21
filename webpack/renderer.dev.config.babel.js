@@ -23,7 +23,7 @@ export default webpackMerge(base, {
     }),
     new webpack.HotModuleReplacementPlugin(),
     new HtmlWebpackPlugin({
-      template: resolve(__dirname, '../static/index.html'),
+      template: resolve(__dirname, '../static/index.ejs'),
     }),
   ],
 });

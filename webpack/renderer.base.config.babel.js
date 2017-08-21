@@ -8,10 +8,7 @@ const electronVersion = semverRegex().exec(devDependencies.electron)[0];
 export default {
   context: resolve(__dirname, '..'),
   entry: {
-    renderer: [
-      'babel-polyfill',
-      './src/renderer/index.js',
-    ],
+    renderer: './src/renderer/index.js',
   },
   module: {
     rules: [

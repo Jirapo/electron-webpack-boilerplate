@@ -8,6 +8,7 @@ import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
 import webpackMerge from 'webpack-merge';
 
 import base from './renderer.base.config.babel';
+import manifest from '../app/renderer/vendor-manifest.json';
 
 export default webpackMerge(base, {
   bail: true,
@@ -38,6 +39,9 @@ export default webpackMerge(base, {
     new webpack.DefinePlugin({
       '__isDev__': JSON.stringify(false),
     }),
+    new webpack.DllReferencePlugin({
+      manifest,
+    }),
     new webpack.optimize.ModuleConcatenationPlugin(),
     new BundleAnalyzerPlugin({
       analyzerMode: 'static',
@@ -47,7 +51,7 @@ export default webpackMerge(base, {
     new ExtractTextPlugin('style.css'),
     new HtmlWebpackPlugin({
       inject: true,
-      template: resolve(__dirname, '../static/index.html'),
+      template: resolve(__dirname, '../static/index.ejs'),
       minify: {
         removeComments: true,
         collapseWhitespace: true,
@@ -60,6 +64,7 @@ export default webpackMerge(base, {
         minifyCSS: true,
         minifyURLs: true,
       },
+      isProd: true,
     }),
     new MinifyPlugin(),
   ],
