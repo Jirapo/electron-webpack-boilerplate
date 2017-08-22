@@ -1,30 +1,25 @@
 import { app, BrowserWindow } from 'electron';
 import { resolve } from 'path';
 import { format } from 'url';
-import { isDev, APP_PATH } from 'constants-nowa';
-
-// console.log(APP_PATH);
 
 let win;
-function createWindow () {
+
+function createWindow() {
   // Create the browser window.
   win = new BrowserWindow({ width: 800, height: 600 });
-
   // and load the index.html of the app.
 
-
-  if (isDev) {
+  if (__isDev__) {
     win.loadURL('http://localhost:9000/index.html');
     // Open the DevTools.
     win.webContents.openDevTools();
   } else {
     win.loadURL(format({
-      pathname: resolve(APP_PATH, 'renderer', 'index.html'),
+      pathname: resolve(process.resourcesPath, 'app/renderer/index.html'),
       protocol: 'file:',
-      slashes: true
+      slashes: true,
     }));
   }
-  
 
   // Emitted when the window is closed.
   win.on('closed', () => {
